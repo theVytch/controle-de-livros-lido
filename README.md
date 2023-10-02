@@ -1,7 +1,12 @@
 # controle-de-livros-lido
 
-📖 Tópicos/Checklist
+Prototipo: 
 
+https://www.figma.com/proto/KTNqcOh0sUVQ3Cqn5W3HNe/Pos-Angular?type=design&node-id=2-60&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A60
+
+
+📖 Tópicos/Checklist
+-
 - Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
 - Apresentar as telas com layout responsivo usando ou não algum framework CSS.
