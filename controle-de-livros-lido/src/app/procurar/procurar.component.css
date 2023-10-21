@@ -1,0 +1,11 @@
+.form-inline {
+  display: flex;
+  justify-content: center;
+  background-color: #640362;
+}
+
+.form-control, .btn {
+  width: 100px;
+}
+
+

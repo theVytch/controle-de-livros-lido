@@ -1,0 +1,10 @@
+.compHeader {
+  background: linear-gradient(to bottom, #900188, #640362);
+  padding: 20px;
+}
+
+.nav-link{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 255, 255);
+}
+

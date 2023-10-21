@@ -1,0 +1,28 @@
+.page-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  display: flex;
+  background-color: chocolate;
+}
+.container-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%s;
+  }
+
+  .text-container-logo {
+    font-size: 70px;
+  }
+
+  .text-container-logo-one-part {
+    color: black;
+  }
+
+  .text-container-logo-two-part {
+    color: #E4E7FC;
+  }

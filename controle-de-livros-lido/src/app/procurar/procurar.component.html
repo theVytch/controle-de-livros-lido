@@ -1,0 +1,11 @@
+<form class="form-inline">
+  <div class="form-group mx-sm-3 mb-1" *ngIf="mostrarElementos">
+    <input type="text" class="form-control custom-input" id="inputText" style="width: 500px;" [(ngModel)]="inputValue" name="inputValue" (input)="onInputChange($event)">
+  </div>
+  <button (click)="changeMessage()" type="button" class="btn btn-dark mb-1">Adicionar</button>
+  <button (click)="changeVisibility()" type="button" class="btn btn-dark mb-1">Mudar</button>
+
+  <div class="form-group mx-sm-3 mb-1" *ngIf="mostrarElementos">
+    <input type="text" class="form-control" [value]="message" readonly>
+  </div>
+</form>
