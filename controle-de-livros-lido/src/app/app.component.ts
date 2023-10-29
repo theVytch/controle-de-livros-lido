@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'controle-de-livros-lido';
+  dataFromParent: string = 'Enviado do pai';
+
+  currentDate : Date;
+
+  constructor(){
+    this.currentDate = new Date();
+  }
+
+  ngOnInit(): void{
+    setInterval(() => {
+      this.currentDate = new Date();
+    })
+  }
+
+  handleChildEvent(eventData: string) {
+    this.dataFromParent = eventData;
+  }
 }
