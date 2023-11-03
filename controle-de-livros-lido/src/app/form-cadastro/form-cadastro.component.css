@@ -1,0 +1,17 @@
+.form {
+    background: linear-gradient(to bottom, #640362, #6c0367, #6c0367, #640362);
+    color: white;
+    padding: 20px;
+}
+
+.form-control {
+  width: 50%;
+}
+
+.form-group, .btn{
+  margin-left: 35%;
+}
+
+.titulo{
+  font-size: 20px;
+}

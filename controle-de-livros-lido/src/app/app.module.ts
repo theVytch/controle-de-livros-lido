@@ -10,6 +10,11 @@ import { ProcurarComponent } from './procurar/procurar.component';
 import { FormsModule } from '@angular/forms';
 import { FilhoComponent } from './filho/filho.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -19,12 +24,16 @@ import { SobreComponent } from './sobre/sobre.component';
     HeaderComponent,
     ProcurarComponent,
     FilhoComponent,
-    SobreComponent
+    SobreComponent,
+    FormCadastroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

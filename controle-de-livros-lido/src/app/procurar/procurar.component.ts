@@ -25,4 +25,10 @@ export class ProcurarComponent {
     inputElement.value = sanitizedValue;
     this.inputValue = sanitizedValue;
   }
+
+  dataFromParent: string = 'Enviado do pai';
+
+  handleChildEvent(eventData: string) {
+    this.dataFromParent = eventData;
+  }
 }

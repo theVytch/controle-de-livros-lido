@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'controle-de-livros-lido';
-  dataFromParent: string = 'Enviado do pai';
 
   currentDate : Date;
 
@@ -19,9 +18,5 @@ export class AppComponent {
     setInterval(() => {
       this.currentDate = new Date();
     })
-  }
-
-  handleChildEvent(eventData: string) {
-    this.dataFromParent = eventData;
   }
 }

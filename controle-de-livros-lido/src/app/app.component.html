@@ -1,11 +1,8 @@
 <app-header></app-header>
 
 <main>
-
   <router-outlet></router-outlet>
-  <app-filho [inputData]="dataFromParent" (outputEvent)="handleChildEvent($event)"></app-filho>
 </main>
-
 
 <app-footer>
   <span style="font-weight: bold">{{
