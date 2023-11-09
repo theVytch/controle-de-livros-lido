@@ -18,6 +18,7 @@ import { MostrarDadosComponent } from './mostrar-dados/mostrar-dados.component';
 import { DataService } from './data.service';
 import { MostrarDadosOutraTableComponent } from './mostrar-dados-outra-table/mostrar-dados-outra-table.component';
 import { ProcurarLivroComponent } from './procurar-livro/procurar-livro.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -30,7 +31,9 @@ import { ProcurarLivroComponent } from './procurar-livro/procurar-livro.componen
     FilhoComponent,
     SobreComponent,
     FormCadastroComponent,
-    ProcurarLivroComponent
+    ProcurarLivroComponent,
+    MostrarDadosComponent,
+    MostrarDadosOutraTableComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +43,7 @@ import { ProcurarLivroComponent } from './procurar-livro/procurar-livro.componen
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MostrarDadosComponent,
-    MostrarDadosOutraTableComponent
+    MatTableModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

@@ -8,15 +8,14 @@ import { DataService } from '../data.service';
 })
 export class ProcurarLivroComponent{
 
-  @Output() inputChange: EventEmitter<number> = new EventEmitter<number>();
+  @Output() inputChange: EventEmitter<string> = new EventEmitter<string>();
 
-  idSelecionado: number = 0;
+  tituloLivro: string = '';
   data: any;
 
   constructor(private dataService: DataService) {}
 
   atualizarTabela() {
-    console.log('ed')
-    this.inputChange.emit(this.idSelecionado);
+    this.dataService.atualizarLista();
   }
 }

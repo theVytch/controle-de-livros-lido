@@ -1,35 +1,33 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../data.service';
-import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-mostrar-dados',
   templateUrl: './mostrar-dados.component.html',
-  styleUrls: ['./mostrar-dados.component.css'],
-  standalone: true,
-  imports: [MatTableModule]
+  styleUrls: ['./mostrar-dados.component.css']
 })
 export class MostrarDadosComponent implements OnInit{
 
   displayedColumns: string[] = ['id', 'autor', 'titulo', 'tipoDeLivro', 'categoria', 'entretenimento', 'acao'];
-  data: any; // Declare a property to hold the data
+  data: any;
 
-  @Output() outputEvent: EventEmitter<string> = new EventEmitter();
-
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.dataService.atualizarLista$.subscribe(() => {
+      this.ngOnInit();
+    });
+  }
 
   ngOnInit() {
-    this.dataService.fetchData().subscribe(
-      (response) => {
-        this.data = response; // Assign the response data to the 'data' property
-      },
-      (error) => {
+    this.dataService.fetchData()
+      .then((response) => {
+        this.data = response;
+      })
+      .catch((error) => {
         console.error('Erro na chamada da API:', error);
-      }
-    );
+      });
   }
 
   enviarParaForm(row: any){
-    this.outputEvent.emit(row);
+    console.log(row);
   }
 }

@@ -11,7 +11,7 @@
     {
       "id": 2,
       "autor": "Autor 2",
-      "titulo": "Livro 2",
+      "titulo": "Book 2",
       "tipoDeLivro": "Ficção",
       "categoria": "Mistério",
       "entretenimento": false
@@ -19,7 +19,7 @@
     {
       "id": 3,
       "autor": "Autor 3",
-      "titulo": "Livro 3",
+      "titulo": "Book 3",
       "tipoDeLivro": "Não Ficção",
       "categoria": "Autoajuda",
       "entretenimento": true

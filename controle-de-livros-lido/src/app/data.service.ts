@@ -1,25 +1,55 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Livro } from './entidade/Livro';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  apiUrl: string = 'http://localhost:3000/livros/';
+  apiUrl: string = 'http://localhost:3000/livros';
+  private atualizarListaSubject = new BehaviorSubject<boolean>(false);
+  atualizarLista$ = this.atualizarListaSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
-  fetchData(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  atualizarLista(): void {
+    this.atualizarListaSubject.next(true);
   }
 
-  getById(id: number): Observable<any>{
-    return this.http.get(this.apiUrl + `${id}`)
+  fetchData(): Promise<any> {
+    return this.http
+      .get(this.apiUrl)
+      .toPromise()
+      .then((response) => response)
+      .catch((error) => {
+        throw error;
+      });
   }
 
-  post(livro: Livro): Observable<any>{
-    return this.http.post(this.apiUrl, livro);
+  getLivrosByTitulo(titulo: string): Promise<Livro[]> {
+    return this.http
+      .get<Livro[]>(`${this.apiUrl}?q=${titulo}`)
+      .toPromise()
+      .then((response) => {
+        if (response) {
+          return response;
+        } else {
+          return [];
+        }
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }
+
+  post(livro: Livro): Promise<any> {
+    return this.http
+      .post(this.apiUrl, livro)
+      .toPromise()
+      .then((response) => response)
+      .catch((error) => {
+        throw error;
+      });
   }
 }
