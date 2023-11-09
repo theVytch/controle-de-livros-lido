@@ -1,0 +1,36 @@
+{
+  "livros": [
+    {
+      "id": 1,
+      "autor": "Autor 1",
+      "titulo": "Livro 1",
+      "tipoDeLivro": "Ficção",
+      "categoria": "Romance",
+      "entretenimento": true
+    },
+    {
+      "id": 2,
+      "autor": "Autor 2",
+      "titulo": "Livro 2",
+      "tipoDeLivro": "Ficção",
+      "categoria": "Mistério",
+      "entretenimento": false
+    },
+    {
+      "id": 3,
+      "autor": "Autor 3",
+      "titulo": "Livro 3",
+      "tipoDeLivro": "Não Ficção",
+      "categoria": "Autoajuda",
+      "entretenimento": true
+    },
+    {
+      "id": 4,
+      "autor": "Autor 4",
+      "titulo": "Livro 4",
+      "tipoDeLivro": "Não Ficção",
+      "categoria": "Autoajuda",
+      "entretenimento": false
+    }
+  ]
+}

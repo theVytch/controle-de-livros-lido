@@ -29,6 +29,7 @@ export class ProcurarComponent {
   dataFromParent: string = 'Enviado do pai';
 
   handleChildEvent(eventData: string) {
+    console.log('aqui')
     this.dataFromParent = eventData;
   }
 }

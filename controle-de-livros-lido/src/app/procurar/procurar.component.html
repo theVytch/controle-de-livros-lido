@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <form class="form-inline">
   <div class="form-group mx-sm-3 mb-1" *ngIf="mostrarElementos">
     <input type="text" class="form-control custom-input" id="inputText" style="width: 500px;" [(ngModel)]="inputValue" name="inputValue" (input)="onInputChange($event)">
@@ -8,7 +9,6 @@
   <div class="form-group mx-sm-3 mb-1" *ngIf="mostrarElementos">
     <input type="text" class="form-control" [value]="message" readonly>
   </div>
-
 
 </form>
 <app-filho [inputData]="dataFromParent" (outputEvent)="handleChildEvent($event)"></app-filho>

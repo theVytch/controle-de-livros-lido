@@ -1,12 +1,6 @@
-.form-inline {
-  padding: 2%;
+.bloco {
+  padding: 5%;
   display: flex;
   justify-content: center;
   background-color: #640362;
 }
-
-.form-control, .btn {
-  width: 100px;
-}
-
-

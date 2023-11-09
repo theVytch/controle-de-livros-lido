@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Livro } from '../entidade/Livro';
+import { DataService } from '../data.service';
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -18,8 +23,10 @@ export class FormCadastroComponent{
   categoriaLivro: string = '';
   tipoDeLivro: string = '';
 
+  receivedData: any;
+  data: any; // Declare a property to hold the data
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
     this.form = this.formBuilder.group({
       autorLivro: ['', [notEmpty]],
       tituloLivro: ['', [notEmpty]],
@@ -36,6 +43,7 @@ export class FormCadastroComponent{
         localStorage.setItem('livro', JSON.stringify(novoLivro));
         console.log('Entidade salva com sucesso no localStorage.');
         console.log(localStorage.getItem('livro'))
+        this.cadastrarLivro(novoLivro);
       } catch (error) {
         console.error('Erro ao salvar a entidade no localStorage:', error);
       }
@@ -45,6 +53,18 @@ export class FormCadastroComponent{
   voltarParaTelaAnterior() {
     const url = '/#';
     this.router.navigateByUrl(url);
+  }
+
+  cadastrarLivro(livro: Livro) {
+    this.dataService.post(livro).subscribe(
+      (response) => {
+        this.data = response; // Assign the response data to the 'data' property
+        console.log(this.data)
+      },
+      (error) => {
+        console.error('Erro na chamada da API:', error);
+      }
+    );
   }
 }
 

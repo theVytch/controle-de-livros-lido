@@ -13,7 +13,11 @@ import { SobreComponent } from './sobre/sobre.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MostrarDadosComponent } from './mostrar-dados/mostrar-dados.component';
+import { DataService } from './data.service';
+import { MostrarDadosOutraTableComponent } from './mostrar-dados-outra-table/mostrar-dados-outra-table.component';
+import { ProcurarLivroComponent } from './procurar-livro/procurar-livro.component';
 
 
 @NgModule({
@@ -25,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProcurarComponent,
     FilhoComponent,
     SobreComponent,
-    FormCadastroComponent
+    FormCadastroComponent,
+    ProcurarLivroComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +38,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MostrarDadosComponent,
+    MostrarDadosOutraTableComponent
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

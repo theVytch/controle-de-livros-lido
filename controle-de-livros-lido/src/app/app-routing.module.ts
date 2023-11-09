@@ -6,7 +6,7 @@ import { FilhoComponent } from './filho/filho.component';
 import { FormCadastroComponent } from './form-cadastro/form-cadastro.component';
 
 const routes: Routes = [
-  {path: '', component: ProcurarComponent},
+  {path: 'filho-e-pai', component: ProcurarComponent},
   {path: 'sobre', component: SobreComponent},
   {path: 'cadastro', component: FormCadastroComponent}
 ];
