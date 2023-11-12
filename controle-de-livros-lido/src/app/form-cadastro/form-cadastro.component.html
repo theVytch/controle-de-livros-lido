@@ -28,18 +28,20 @@
 
     <p></p>
 
-    <label class="titulo">Categoria</label>
-    <div>
-      <input type="text" class="form-control" id="categoriaLivro" [(ngModel)]="categoriaLivro" placeholder="Ex: Aventura" formControlName="categoriaLivro">
-      <div *ngIf="form.get('categoriaLivro')?.hasError('notEmpty') && (form.get('categoriaLivro')?.dirty || form.get('categoriaLivro')?.touched)" class="error">Este campo não pode estar vazio.</div>
-    </div>
+    <label class="titulo" *ngIf="tipoDeLivro === 'estudo'">Matéria</label>
+    <label class="titulo" *ngIf="tipoDeLivro === 'entretenimento'">Categoria</label>
 
+    <div>
+      <input type="text" class="form-control" [(ngModel)]="categoriaLivro" placeholder="{{ tipoDeLivro === 'estudo' ? 'Ex: Matematica' : 'Ex: Aventura' }}" formControlName="categoriaLivro">
+        <div *ngIf="form.get('categoriaLivro')?.hasError('notEmpty') && (form.get('categoriaLivro')?.dirty || form.get('categoriaLivro')?.touched)" class="error">Este campo não pode estar vazio.</div>
+    </div>
     <p></p>
 
     <div class="form-check">
       <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="radioCheckLido" formControlName="radioCheckLido">
       <label class="form-check-label" for="radioCheckLido">Você ja finalizou esse livro?</label>
     </div>
+
   </div>
 
   <button type="submit" class="btn btn-primary " [disabled]="!form.valid" (click)="submitForm()">Enviar</button>

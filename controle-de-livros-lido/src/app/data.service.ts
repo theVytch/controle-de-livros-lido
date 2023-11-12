@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Livro } from './entidade/Livro';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';  // Adicione 'throwError'
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -27,20 +28,16 @@ export class DataService {
       });
   }
 
-  getLivrosByTitulo(titulo: string): Promise<Livro[]> {
-    return this.http
-      .get<Livro[]>(`${this.apiUrl}?q=${titulo}`)
-      .toPromise()
-      .then((response) => {
-        if (response) {
-          return response;
-        } else {
-          return [];
-        }
-      })
-      .catch((error) => {
+  getById(id: number): Observable<Livro> {
+    return this.http.get<Livro>(`${this.apiUrl}/${id}`);
+  }
+
+  getLivrosByTitulo(titulo: string): Observable<Livro[]> {
+    return this.http.get<Livro[]>(`${this.apiUrl}?q=${titulo}`).pipe(
+      catchError((error) => {
         throw error;
-      });
+      })
+    );
   }
 
   post(livro: Livro): Promise<any> {

@@ -1,8 +1,9 @@
 <footer class="footer">
   <div class="footer-msg">
-      <p>Gerenciamento de livros lidos</p>
-  <div>
-    <ng-content></ng-content>
+    <p>Gerenciamento de livros lidos</p>
+    <p>Última atualização usando pipes: {{ currentDate | appDateFormat: 'HH:mm:ss' }}</p>
+    <div>
+      <ng-content></ng-content>
+    </div>
   </div>
-</div>
 </footer>

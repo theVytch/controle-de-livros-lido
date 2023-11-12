@@ -19,6 +19,7 @@ import { DataService } from './data.service';
 import { MostrarDadosOutraTableComponent } from './mostrar-dados-outra-table/mostrar-dados-outra-table.component';
 import { ProcurarLivroComponent } from './procurar-livro/procurar-livro.component';
 import { MatTableModule } from '@angular/material/table';
+import { AppDateFormatPipe } from './footer/footer.component'; // Certifique-se de corrigir o caminho
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatTableModule } from '@angular/material/table';
     FormCadastroComponent,
     ProcurarLivroComponent,
     MostrarDadosComponent,
-    MostrarDadosOutraTableComponent
+    MostrarDadosOutraTableComponent,
+    AppDateFormatPipe
   ],
   imports: [
     BrowserModule,

@@ -34,12 +34,14 @@ export class MostrarDadosOutraTableComponent implements OnInit{
         });
     } else {
       this.dataService.getLivrosByTitulo(this.tituloLivro)
-        .then((response) => {
-          this.data = response;
-        })
-        .catch((error) => {
-          console.error('Erro na chamada da API:', error);
-        });
+        .subscribe(
+          (response: Livro[]) => {
+            this.data = response;
+          },
+          (error) => {
+            console.error('Erro na chamada da API:', error);
+          }
+        );
     }
   }
 }

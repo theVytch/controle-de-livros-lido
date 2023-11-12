@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class MostrarDadosComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'autor', 'titulo', 'tipoDeLivro', 'categoria', 'entretenimento', 'acao'];
+  displayedColumns: string[] = ['id', 'autor', 'titulo', 'tipoDeLivro', 'categoria', 'entretenimento'];
   data: any;
 
   constructor(private dataService: DataService) {
