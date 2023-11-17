@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sobre',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SobreComponent {
 
+  constructor(private router: Router) {
+
+  }
+
+  voltarHome(){
+    const url = '/#';
+    this.router.navigateByUrl(url);
+  }
 }

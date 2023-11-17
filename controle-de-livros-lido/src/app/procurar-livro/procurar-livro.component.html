@@ -1,9 +1,11 @@
 
-<label class="titulo"><h2>Procurar Livro por nome</h2></label>
+<label class="titulo">Procurar Livro por nome</label>
 <form class="form-inline">
   <div class="form-group mx-sm-3 mb-1">
-    <input type="text" [(ngModel)]="tituloLivro" class="form-control custom-input" id="inputText" style="width: 500px;" name="inputValue">
+    <input type="text" [(ngModel)]="tituloLivro" class="form-control custom-input" id="inputText" style="width: 500px;" name="inputValue" placeholder="Procurar titulo">
   </div>
   <button type="button" class="btn btn-dark mb-1" (click)="atualizarTabela()">Procurar</button>
+  <button type="button" class="btn2 btn-dark btn-lg mb-1 ml-2" routerLink="cadastro">Adicionar</button>
 </form>
-<app-mostrar-dados-outra-table [tituloLivro]="tituloLivro"></app-mostrar-dados-outra-table>
+<app-mostrar-dados-tela-procura [tituloLivro]="tituloLivro"></app-mostrar-dados-tela-procura>
+

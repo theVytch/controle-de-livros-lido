@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Livro } from './entidade/Livro';
-import { BehaviorSubject, Observable } from 'rxjs';  // Adicione 'throwError'
+import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class DataService {
       });
   }
 
-  getById(id: number): Observable<Livro> {
+  getLivroById(id: number): Observable<Livro> {
     return this.http.get<Livro>(`${this.apiUrl}/${id}`);
   }
 
@@ -43,6 +43,28 @@ export class DataService {
   post(livro: Livro): Promise<any> {
     return this.http
       .post(this.apiUrl, livro)
+      .toPromise()
+      .then((response) => response)
+      .catch((error) => {
+        throw error;
+      });
+  }
+
+  put(id :number, livro: Livro): Promise<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http
+      .put(url, livro)
+      .toPromise()
+      .then((response) => response)
+      .catch((error) => {
+        throw error;
+      });
+  }
+
+  deleteById(id: number): Promise<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http
+      .delete(url)
       .toPromise()
       .then((response) => response)
       .catch((error) => {

@@ -3,15 +3,26 @@
   display: flex;
   justify-content: center;
   background-color: #640362;
+  margin: 0;
 }
 
 .form-control, .btn {
   width: 100px;
+  margin: 0;
 }
 
 .titulo {
+  font-size: 20px;
+  display: flex;
+  background-color: #640362;
   color: aliceblue;
   display: block;
   text-align: center;
   margin-bottom: 2px;
 }
+
+.quadrado {
+  background-color: yellow;
+  padding: 20px;
+}
+

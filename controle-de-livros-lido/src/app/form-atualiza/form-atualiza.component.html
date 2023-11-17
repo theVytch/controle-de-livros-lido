@@ -1,7 +1,6 @@
-
 <form class="form" [formGroup]="form">
   <div class="tituloLivro">
-    <label>Cadastrar Livro</label>
+    <label>Atualizar Livro</label>
   </div>
   <div class="form-group">
     <label class="titulo">Autor</label>
@@ -29,7 +28,7 @@
       <label class="form-check-label" for="estudo">Estudo</label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="entretenimento" value="ntretenimento" [(ngModel)]="tipoDeLivro" [ngModelOptions]="{ standalone: true }">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="entretenimento" value="Entretenimento" [(ngModel)]="tipoDeLivro" [ngModelOptions]="{ standalone: true }">
       <label class="form-check-label" for="entretenimento">Entretenimento</label>
     </div>
 
@@ -51,6 +50,6 @@
 
   </div>
 
-  <button type="submit" class="btn btn-primary " [disabled]="!form.valid" (click)="submitForm()">Enviar</button>
+  <button type="submit" class="btn btn-primary " [disabled]="!form.valid" (click)="submitForm()">Editar</button>
   <button type="submit" class="btn btn-danger mx-sm-5" (click)="voltarParaTelaAnterior()">Voltar</button>
 </form>

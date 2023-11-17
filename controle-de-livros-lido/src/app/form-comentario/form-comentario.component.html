@@ -1,0 +1,14 @@
+<form class="form" [formGroup]="form">
+  <div class="tituloLivro">
+    <label>Adicionar Comentario</label>
+  </div>
+  <div class="form-group">
+    <label for="comentarioLivro">
+      <p>Última atualização: {{ lastDate | appDateFormat: 'dd/MM/yyyy' }}</p>
+    </label>
+    <textarea class="form-control" id="comentarioLivro" rows="8" formControlName="comentarioLivro"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success " (click)="submitForm()">Salvar</button>
+  <button type="submit" class="btn btn-danger mx-sm-4" (click)="voltarParaTelaAnterior()">Voltar</button>
+</form>

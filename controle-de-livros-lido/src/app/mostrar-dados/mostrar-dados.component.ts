@@ -26,8 +26,4 @@ export class MostrarDadosComponent implements OnInit{
         console.error('Erro na chamada da API:', error);
       });
   }
-
-  enviarParaForm(row: any){
-    console.log(row);
-  }
 }

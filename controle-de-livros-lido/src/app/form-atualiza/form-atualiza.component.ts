@@ -1,18 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl  } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 import { Livro } from '../entidade/Livro';
 import { DataService } from '../data.service';
 import { HttpClient } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-form-cadastro',
-  templateUrl: './form-cadastro.component.html',
-  styleUrls: ['./form-cadastro.component.css']
+  selector: 'app-form-atualizar',
+  templateUrl: './form-atualiza.component.html',
+  styleUrls: ['./form-atualiza.component.css']
 })
 
-export class FormCadastroComponent implements OnInit{
+export class FormAtualizaComponent implements OnInit{
 
   form: FormGroup;
   autorLivro: string = '';
@@ -23,7 +23,11 @@ export class FormCadastroComponent implements OnInit{
   data: any;
   receivedData: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService) {
+  id: number = 0;
+  livro?: Livro;
+
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private dataService: DataService,
+    private route: ActivatedRoute) {
     this.form = this.formBuilder.group({
       autorLivro: ['', [Validators.required, regexValidator(/.+/i, 'O autor não pode estar vazio.')]],
       tituloLivro: ['', [Validators.required, regexValidator(/.+/i, 'O título não pode estar vazio.')]],
@@ -33,7 +37,21 @@ export class FormCadastroComponent implements OnInit{
   }
 
   ngOnInit() {
-
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+      this.dataService.getLivroById(this.id).subscribe(livro => {
+        this.livro = livro;
+        this.autorLivro = livro.autor;
+        this.tituloLivro = livro.titulo;
+        this.categoriaLivro = livro.categoria;
+        const tipoLivro = livro.tipoDeLivro;
+        if(tipoLivro === 'Estudo'){
+          this.tipoDeLivro = 'Estudo';
+        }else{
+          this.tipoDeLivro = 'Entretenimento'
+        }
+      });
+    });
   }
 
   submitForm() {
@@ -41,9 +59,8 @@ export class FormCadastroComponent implements OnInit{
       const isChecked = this.form.get('radioCheckLido')?.value;
       const novoLivro = new Livro(this.autorLivro, this.tituloLivro, this.tipoDeLivro, this.categoriaLivro, isChecked);
       try {
-        this.cadastrarLivro(novoLivro);
-        this.dataService.atualizarLista();
-        this.voltarParaTelaAnterior();
+        this.atualizaLivro(this.id ,novoLivro);
+        this.voltarParaTelaAnterior()
       } catch (error) {
         console.error('Erro ao salvar a entidade no localStorage:', error);
       }
@@ -55,11 +72,10 @@ export class FormCadastroComponent implements OnInit{
     this.router.navigateByUrl(url);
   }
 
-  cadastrarLivro(livro: Livro) {
-    this.dataService.post(livro)
+  atualizaLivro(id: number, livro: Livro) {
+    this.dataService.put(id, livro)
     .then((response) => {
       this.data = response;
-      this.dataService.atualizarLista();
     })
     .catch((error) => {
       console.error('Erro na chamada da API:', error);
