@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href=/controle-de-livros-lido/",
+    "build": "ng build --base-href=/controle-de-livros-lido/",
     "ghpages": "angular-cli-ghpages --dir=dist/controle-de-livros-lido",
     "deploy": "npm run build & npm run ghpages",
     "test": "ng test",
