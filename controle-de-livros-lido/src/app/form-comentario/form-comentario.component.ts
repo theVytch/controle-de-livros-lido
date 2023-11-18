@@ -40,6 +40,7 @@ export class FormComentarioComponent implements OnInit{
       this.id = +params['id'];
       this.dataService.getLivroById(this.id).subscribe(livro => {
         this.livro = livro;
+        this.tituloLivro = livro.titulo;
         if (livro.Comentario && livro.Comentario.comentario !== undefined) {
           this.form = this.formBuilder.group({
             comentarioLivro: [livro.Comentario.comentario]

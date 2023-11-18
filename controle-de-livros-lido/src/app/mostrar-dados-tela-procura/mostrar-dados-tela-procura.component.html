@@ -27,9 +27,9 @@
       <td mat-cell *matCellDef="let element"> {{element.categoria | slice:0:8 }} {{ element.autor.length > 8 ? '...' : '' }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="entretenimento">
-      <th mat-header-cell *matHeaderCellDef> Entretenimento </th>
-      <td mat-cell *matCellDef="let element"> {{element.entretenimento}} </td>
+    <ng-container matColumnDef="jaFoiLido">
+      <th mat-header-cell *matHeaderCellDef> Ja leu? </th>
+      <td mat-cell *matCellDef="let element"> {{element.jaFoiLido ? 'Sim' : 'Não' }} </td>
     </ng-container>
 
     <ng-container matColumnDef="acao">

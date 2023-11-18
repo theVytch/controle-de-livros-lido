@@ -4,14 +4,14 @@ export class Livro {
   titulo: string;
   tipoDeLivro: string;
   categoria: string;
-  entretenimento: boolean;
+  jaFoiLido: boolean;
   Comentario: Comentario = new Comentario('');
 
-  constructor(autor: string, titulo: string, tipoDeLivro: string, categoria: string, entretenimento: boolean) {
+  constructor(autor: string, titulo: string, tipoDeLivro: string, categoria: string, jaFoiLido: boolean) {
     this.autor = autor;
     this.titulo = titulo;
     this.tipoDeLivro = tipoDeLivro;
     this.categoria = categoria;
-    this.entretenimento = entretenimento;
+    this.jaFoiLido = jaFoiLido;
   }
 }

@@ -13,7 +13,6 @@ import { FormComentarioComponent } from './form-comentario/form-comentario.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { MostrarDadosComponent } from './mostrar-dados/mostrar-dados.component';
 import { DataService } from './data.service';
 import { MostrarDadosTelaProcuraComponent } from './mostrar-dados-tela-procura/mostrar-dados-tela-procura.component';
 import { ProcurarLivroComponent } from './procurar-livro/procurar-livro.component';
@@ -31,7 +30,6 @@ import { AppDateFormatPipe } from './dataFormat/app-data-format-pipe';
     FormAtualizaComponent,
     FormComentarioComponent,
     ProcurarLivroComponent,
-    MostrarDadosComponent,
     MostrarDadosTelaProcuraComponent,
     AppDateFormatPipe
   ],

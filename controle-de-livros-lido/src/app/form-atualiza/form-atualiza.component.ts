@@ -19,6 +19,7 @@ export class FormAtualizaComponent implements OnInit{
   tituloLivro: string = '';
   categoriaLivro: string = '';
   tipoDeLivro: string = '';
+  radioCheckLido: boolean = true;
 
   data: any;
   receivedData: any;
@@ -32,7 +33,7 @@ export class FormAtualizaComponent implements OnInit{
       autorLivro: ['', [Validators.required, regexValidator(/.+/i, 'O autor não pode estar vazio.')]],
       tituloLivro: ['', [Validators.required, regexValidator(/.+/i, 'O título não pode estar vazio.')]],
       categoriaLivro: ['', [Validators.required, regexValidator(/.+/i, 'A categoria não pode estar vazia.')]],
-      radioCheckLido: [false]
+      radioCheckLido: ['']
     });
   }
 
@@ -44,6 +45,8 @@ export class FormAtualizaComponent implements OnInit{
         this.autorLivro = livro.autor;
         this.tituloLivro = livro.titulo;
         this.categoriaLivro = livro.categoria;
+        this.radioCheckLido = livro.jaFoiLido;
+        this.form.patchValue({ radioCheckLido: livro.jaFoiLido });
         const tipoLivro = livro.tipoDeLivro;
         if(tipoLivro === 'Estudo'){
           this.tipoDeLivro = 'Estudo';

@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 })
 export class MostrarDadosTelaProcuraComponent implements OnInit{
 
-  displayedColumns: string[] = ['id', 'autor', 'titulo', 'tipoDeLivro', 'categoria', 'entretenimento', 'acao'];
+  displayedColumns: string[] = ['id', 'autor', 'titulo', 'tipoDeLivro', 'categoria', 'jaFoiLido', 'acao'];
   data: Livro[] = [];
 
   @Input() tituloLivro: string = '';
-  @Output() atualizarClicado = new EventEmitter<void>();
 
   constructor(private dataService: DataService, private router: Router)  {
     this.dataService.atualizarLista$.subscribe(() => {
@@ -55,16 +54,15 @@ export class MostrarDadosTelaProcuraComponent implements OnInit{
 
   deletarLivro(row: any){
     const livro = row;
+    const confirmarExclusao = window.confirm(`Tem certeza de que deseja excluir o livro: ${livro.titulo}?`);
+    if (confirmarExclusao) {
     this.dataService.deleteById(livro.id);
     this.atualizar();
+  }
   }
 
   enviarLivroParaEditarComentario(row: any) {
     const id = row.id;
     this.router.navigate([`/comentario/${id}`]);
-  }
-
-  onClickAtualizar() {
-    this.atualizarClicado.emit();
   }
 }
